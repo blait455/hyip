@@ -1,0 +1,295 @@
+<?php $__env->startSection('content'); ?>
+<div class="container-fluid mt--6">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0"><?php echo e(__('Congifure website')); ?></h3>
+            </div>
+            <div class="card-body">
+                <form action="<?php echo e(route('admin.settings.update')); ?>" method="post">
+                    <?php echo csrf_field(); ?>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Website name:')); ?></label>
+                        <div class="col-lg-10">
+                            <input type="text" name="site_name" maxlength="200" value="<?php echo e($set->site_name); ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Tawk ID:')); ?></label>
+                        <div class="col-lg-10">
+                            <input type="text" name="tawk_id" value="<?php echo e($set->tawk_id); ?>" maxlength="25" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Company email:')); ?></label>
+                        <div class="col-lg-10">
+                            <input type="email" name="email" value="<?php echo e($set->email); ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Mobile:')); ?></label>
+                        <div class="col-lg-10">
+                            <div class="input-group">
+                                <input type="text" name="mobile" max-length="14" value="<?php echo e($set->mobile); ?>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Website title:')); ?></label>
+                        <div class="col-lg-10">
+                            <input type="text" name="title" max-length="200" value="<?php echo e($set->title); ?>" class="form-control">
+                        </div>
+                    </div>                       
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2" for="example-color-input"><?php echo e(__('Dashboard color')); ?> <span class="text-danger">*</span></label>
+                        <div class="col-lg-2">
+                            <div class="">
+                                <input type="color" class="form-control" id="example-color-input" name="d_c" value="<?php echo e($set->d_c); ?>">
+                            </div>
+                        </div>                              
+                        
+                        <label class="col-form-label col-lg-2" for="example-color-input1"><?php echo e(__('Main color')); ?> <span class="text-danger">*</span></label>
+                        <div class="col-lg-2">
+                            <div class="">
+                                <input type="color" name="m_c" value="<?php echo e($set->m_c); ?>" class="form-control" id="example-color-input1">
+                            </div>
+                        </div>                             
+                        
+                        <label class="col-form-label col-lg-2" for="example-color-input2"><?php echo e(__('Secondary')); ?> <span class="text-danger">*</span></label>
+                        <div class="col-lg-2">
+                            <div class="">
+                                <input type="color" name="s_c" value="<?php echo e($set->s_c); ?>" class="form-control" id="example-color-input2">
+                            </div>
+                        </div>                              
+                        
+                    
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Balance on signup')); ?> <span class="text-danger">*</span></label>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><?php echo e($currency->symbol); ?></span>
+                                </span>
+                                <input type="number" name="bal" step="any" max-length="10" value="<?php echo e(convertFloat($set->balance_reg)); ?>" class="form-control">
+                            </div>
+                        </div>                                                                                    
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Withdraw charge')); ?> <span class="text-danger">*</span></label>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <input type="number" name="withdraw_charge" max-length="10" value="<?php echo e($set->withdraw_charge); ?>" class="form-control">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">%</span>
+                                </span>
+                            </div>
+                        </div>                              
+                        <label class="col-form-label col-lg-2"><?php echo e(__('Transfer charge')); ?> <span class="text-danger">*</span></label>
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <input type="number" name="transfer_charge" max-length="10" value="<?php echo e($set->transfer_charge); ?>" class="form-control">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">%</span>
+                                </span>
+                            </div>
+                        </div>                            
+                        </div>           
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2"><?php echo e(__('Status')); ?> <span class="text-danger">*</span></label>
+                            <div class="col-lg-5">
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->kyc==1): ?>
+                                        <input type="checkbox" name="kyc" id=" customCheckLogin6" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="kyc" id=" customCheckLogin6"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin6">
+                                    <span class="text-muted"><?php echo e(__('Kyc')); ?></span>     
+                                    </label>
+                                </div>                        
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->email_verification==1): ?>
+                                        <input type="checkbox" name="email_activation" id=" customCheckLogin5" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="email_activation"id=" customCheckLogin5"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin5">
+                                    <span class="text-muted"><?php echo e(__('Email verification')); ?></span>     
+                                    </label>
+                                </div>                       
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->email_notify==1): ?>
+                                        <input type="checkbox" name="email_notify" id=" customCheckLogin4" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="email_notify"id=" customCheckLogin4"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin4">
+                                    <span class="text-muted"><?php echo e(__('Email notify')); ?></span>     
+                                    </label>
+                                </div>                        
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->registration==1): ?>
+                                        <input type="checkbox" name="registration" id=" customCheckLogin3" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="registration"id=" customCheckLogin3"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin3">
+                                    <span class="text-muted"><?php echo e(__('Registration')); ?></span>     
+                                    </label>
+                                </div> 
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->referral==1): ?>
+                                        <input type="checkbox" name="referral" id=" customCheckLogin4" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="referral"id=" customCheckLogin4"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin4">
+                                    <span class="text-muted"><?php echo e(__('Referral')); ?></span>     
+                                    </label>
+                                </div>                                 
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->recaptcha==1): ?>
+                                        <input type="checkbox" name="recaptcha" id=" customCheckLogin9" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="recaptcha"id=" customCheckLogin9"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin9">
+                                    <span class="text-muted"><?php echo e(__('Recaptcha')); ?></span>     
+                                    </label>
+                                </div>                                
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->language==1): ?>
+                                        <input type="checkbox" name="language" id="customCheckLogin5" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="language"id="customCheckLogin5"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin5">
+                                    <span class="text-muted"><?php echo e(__('Language')); ?></span>     
+                                    </label>
+                                </div>                                
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->blog==1): ?>
+                                        <input type="checkbox" name="blog" id="customCheckLogin6" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="blog"id="customCheckLogin6"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin6">
+                                    <span class="text-muted"><?php echo e(__('Blog')); ?></span>     
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">      
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->services==1): ?>
+                                        <input type="checkbox" name="services" id="customCheckLogin7" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="services"id="customCheckLogin7"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin7">
+                                    <span class="text-muted"><?php echo e(__('Services')); ?></span>     
+                                    </label>
+                                </div>  
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->review==1): ?>
+                                        <input type="checkbox" name="review" id="customCheckLogin8" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="review"id="customCheckLogin8"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin8">
+                                    <span class="text-muted"><?php echo e(__('Review')); ?></span>     
+                                    </label>
+                                </div>                                 
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->plan==1): ?>
+                                        <input type="checkbox" name="plan" id="customCheckLogin9" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="plan"id="customCheckLogin9"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin9">
+                                    <span class="text-muted"><?php echo e(__('Plan')); ?></span>     
+                                    </label>
+                                </div>                                 
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->team==1): ?>
+                                        <input type="checkbox" name="team" id="customCheckLogin10" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="team"id="customCheckLogin10"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin10">
+                                    <span class="text-muted"><?php echo e(__('Team')); ?></span>     
+                                    </label>
+                                </div>                                  
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->stat==1): ?>
+                                        <input type="checkbox" name="stat" id="customCheckLogin11" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="stat"id="customCheckLogin11"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin11">
+                                    <span class="text-muted"><?php echo e(__('Stat')); ?></span>     
+                                    </label>
+                                </div>                                  
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->contact==1): ?>
+                                        <input type="checkbox" name="contact" id="customCheckLogin12" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="contact"id="customCheckLogin12"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin12">
+                                    <span class="text-muted"><?php echo e(__('Contact')); ?></span>     
+                                    </label>
+                                </div>                                 
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <?php if($set->faq==1): ?>
+                                        <input type="checkbox" name="faq" id="customCheckLogin13" class="custom-control-input" value="1" checked>
+                                    <?php else: ?>
+                                        <input type="checkbox" name="faq"id="customCheckLogin13"  class="custom-control-input" value="1">
+                                    <?php endif; ?>
+                                    <label class="custom-control-label" for=" customCheckLogin13">
+                                    <span class="text-muted"><?php echo e(__('Faq')); ?></span>     
+                                    </label>
+                                </div>                                                                                                                                                                                                                                                    
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2"><?php echo e(__('Short description:')); ?></label>
+                            <div class="col-lg-10">
+                                <textarea type="text" name="site_desc" rows="4" class="form-control"><?php echo e($set->site_desc); ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2"><?php echo e(__('Address:')); ?></label>
+                            <div class="col-lg-10">
+                                <textarea type="text" name="address" rows="4" class="form-control"><?php echo e($set->address); ?></textarea>
+                            </div>
+                        </div>            
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success btn-sm"><?php echo e(__('Save')); ?></button>
+                        </div>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h3 class="mb-0"><?php echo e(__('Security')); ?></h3>
+            </div>
+            <div class="card-body">
+                <form action="<?php echo e(route('admin.account.update')); ?>" method="post">
+                    <?php echo csrf_field(); ?>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2"><?php echo e(__('Username')); ?>:</label>
+                            <div class="col-lg-10">
+                                <input type="text" name="username" value="<?php echo e($val->username); ?>" class="form-control">
+                            </div>
+                        </div>                         
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2"><?php echo e(__('Password')); ?>:</label>
+                            <div class="col-lg-10">
+                                <input type="password" name="password"  class="form-control" required>
+                            </div>
+                        </div>          
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success btn-sm"><?php echo e(__('Save')); ?></button>
+                    </div>
+                </form>
+            </div>
+        </div>    
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/resources/views/admin/settings/basic-setting.blade.php ENDPATH**/ ?>

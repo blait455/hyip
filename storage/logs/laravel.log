@@ -1,0 +1,22 @@
+[2020-06-08 23:59:24] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:168)
+[stacktrace]
+#0 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(500): Illuminate\\Log\\LogManager->driver()
+#3 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(116): Illuminate\\Log\\LogManager->error('syntax error, u...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/app/Exceptions/Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#5 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(314): App\\Exceptions\\Handler->report(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#6 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(122): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#7 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2020-06-08 23:59:24] laravel.ERROR: syntax error, unexpected '2020' (T_LNUMBER) {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '2020' (T_LNUMBER) at /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/config/auth.php:137)
+[stacktrace]
+#0 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#1 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(210): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#2 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#4 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/core/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#5 /Applications/XAMPP/xamppfiles/htdocs/kingsmen/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#6 {main}
+"} 
