@@ -38,10 +38,11 @@
     34 => 'Mews\\Purifier\\PurifierServiceProvider',
     35 => 'Laravel\\Socialite\\SocialiteServiceProvider',
     36 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
-    37 => 'App\\Providers\\AppServiceProvider',
-    38 => 'App\\Providers\\AuthServiceProvider',
-    39 => 'App\\Providers\\EventServiceProvider',
-    40 => 'App\\Providers\\RouteServiceProvider',
+    37 => 'Intervention\\Image\\ImageServiceProvider',
+    38 => 'App\\Providers\\AppServiceProvider',
+    39 => 'App\\Providers\\AuthServiceProvider',
+    40 => 'App\\Providers\\EventServiceProvider',
+    41 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -64,10 +65,11 @@
     16 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
     17 => 'App\\Providers\\HelperServicerProvider',
     18 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
-    19 => 'App\\Providers\\AppServiceProvider',
-    20 => 'App\\Providers\\AuthServiceProvider',
-    21 => 'App\\Providers\\EventServiceProvider',
-    22 => 'App\\Providers\\RouteServiceProvider',
+    19 => 'Intervention\\Image\\ImageServiceProvider',
+    20 => 'App\\Providers\\AppServiceProvider',
+    21 => 'App\\Providers\\AuthServiceProvider',
+    22 => 'App\\Providers\\EventServiceProvider',
+    23 => 'App\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (

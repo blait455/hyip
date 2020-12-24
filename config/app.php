@@ -169,6 +169,7 @@ return [
          * Package Service Providers...
          */
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         
         /*
          * Application Service Providers...
@@ -233,6 +234,7 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
