@@ -118,8 +118,8 @@
 <section class="pricing-two pt-100 wow soneFadeUp">
     <div class="container">
         <div class="section-title text-center">
-            <span class="sub-title" style="color: {{$set->s_c}};">{{__('Pricing Plan')}}</span>
-            <h2 class="title">{{__('Choose your pricing policy which affordable')}}</h2>
+            <span class="sub-title" style="color: {{$set->s_c}};">{{__('Pricing Packages')}}</span>
+            <h2 class="title">{{__('Choose your package')}}</h2>
         </div>
         <div class="row advanced-pricing-table no-gutters">
             @foreach($plan as $val)
@@ -127,22 +127,32 @@
                 <div class="pricing-table bg-white">
                     <div class="pricing-header pricing-amount">
                         <h2 class="price-title">{{$val->name}}</h2>
-                        <p>{{__('Payouts wont be available till end of plan duration')}}</p>
+                        <br>
+                        <p class="text-secondary">Category: <span class="badge">{{ $val->category }}</span></p>
+                        @if ($val->sub_cat)
+                            <p class="text-secondary">Sub-category: <span class="badge">{{ $val->sub_cat }}</span></p>
+                        @endif
+                        {{-- <p>{{__('Payouts wont be available till end of plan duration')}}</p> --}}
                         <div class="monthly_price">
                             <h2 class="price" style="color: {{$set->s_c}};">{{$currency->symbol.number_format($val->min_deposit)}}</h2>
                         </div>
                         <div class="small_desc text-center">
-                            <span class="castrooo">{{__('Profit Topup is Automated')}}</span><br>
-                            <span class="castrooo">{{__('For')}} {{$val->duration}} {{$val->period}}(s)</span><br>
-                            <span class="castrooo">{{$val->percent}} {{__('Daily Percent')}}</span><br>
-                            <span class="castrooo">{{$currency->symbol.number_format($val->amount)}} {{__('Maximum Price')}}</span><br>
+                            {{-- <span class="castrooo">{{__('Profit Topup is Automated')}}</span><br> --}}
+                            {{-- <span class="castrooo">{{__('For')}} {{$val->duration}} {{$val->period}}(s)</span><br> --}}
+                            @if ($val->percent)
+                                <span class="castrooo">{{$val->percent}}% intrest rate Weekly</span><br>                                
+                            @endif
+                            @if ($val->amount)
+                                <span class="castrooo">{{$currency->symbol.number_format($val->amount)}} {{__('Maximum')}}</span><br>
+                            @endif
                             @if($val->ref_percent!=null)
-                            <span class="castrooo">{{$val->ref_percent}}% {{__('Referral Percent')}}</span><br>
+                            <span class="castrooo">{{$val->ref_percent}}% {{__('Referral Bonus')}}</span><br>
                             @endif
                             @if($val->bonus!=null)
-                            <span class="castrooo">{{$val->bonus}}% {{__('Trading Bonus')}}</span><br>
+                            <span class="castrooo">{{$val->bonus}}% {{__('Compondment Bonus')}}</span><br>
                             @endif
-                        </div>
+                        </div><br>
+                        <p><strong>{{ $val->description }}</strong></p>
                     </div>
                 </div>
             </div>

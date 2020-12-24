@@ -119,8 +119,8 @@
 <section class="pricing-two pt-100 wow soneFadeUp">
     <div class="container">
         <div class="section-title text-center">
-            <span class="sub-title" style="color: <?php echo e($set->s_c); ?>;"><?php echo e(__('Pricing Plan')); ?></span>
-            <h2 class="title"><?php echo e(__('Choose your pricing policy which affordable')); ?></h2>
+            <span class="sub-title" style="color: <?php echo e($set->s_c); ?>;"><?php echo e(__('Pricing Packages')); ?></span>
+            <h2 class="title"><?php echo e(__('Choose your package')); ?></h2>
         </div>
         <div class="row advanced-pricing-table no-gutters">
             <?php $__currentLoopData = $plan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -128,22 +128,32 @@
                 <div class="pricing-table bg-white">
                     <div class="pricing-header pricing-amount">
                         <h2 class="price-title"><?php echo e($val->name); ?></h2>
-                        <p><?php echo e(__('Payouts wont be available till end of plan duration')); ?></p>
+                        <br>
+                        <p class="text-secondary">Category: <span class="badge"><?php echo e($val->category); ?></span></p>
+                        <?php if($val->sub_cat): ?>
+                            <p class="text-secondary">Sub-category: <span class="badge"><?php echo e($val->sub_cat); ?></span></p>
+                        <?php endif; ?>
+                        
                         <div class="monthly_price">
                             <h2 class="price" style="color: <?php echo e($set->s_c); ?>;"><?php echo e($currency->symbol.number_format($val->min_deposit)); ?></h2>
                         </div>
                         <div class="small_desc text-center">
-                            <span class="castrooo"><?php echo e(__('Profit Topup is Automated')); ?></span><br>
-                            <span class="castrooo"><?php echo e(__('For')); ?> <?php echo e($val->duration); ?> <?php echo e($val->period); ?>(s)</span><br>
-                            <span class="castrooo"><?php echo e($val->percent); ?> <?php echo e(__('Daily Percent')); ?></span><br>
-                            <span class="castrooo"><?php echo e($currency->symbol.number_format($val->amount)); ?> <?php echo e(__('Maximum Price')); ?></span><br>
+                            
+                            
+                            <?php if($val->percent): ?>
+                                <span class="castrooo"><?php echo e($val->percent); ?>% intrest rate Weekly</span><br>                                
+                            <?php endif; ?>
+                            <?php if($val->amount): ?>
+                                <span class="castrooo"><?php echo e($currency->symbol.number_format($val->amount)); ?> <?php echo e(__('Maximum')); ?></span><br>
+                            <?php endif; ?>
                             <?php if($val->ref_percent!=null): ?>
-                            <span class="castrooo"><?php echo e($val->ref_percent); ?>% <?php echo e(__('Referral Percent')); ?></span><br>
+                            <span class="castrooo"><?php echo e($val->ref_percent); ?>% <?php echo e(__('Referral Bonus')); ?></span><br>
                             <?php endif; ?>
                             <?php if($val->bonus!=null): ?>
-                            <span class="castrooo"><?php echo e($val->bonus); ?>% <?php echo e(__('Trading Bonus')); ?></span><br>
+                            <span class="castrooo"><?php echo e($val->bonus); ?>% <?php echo e(__('Compondment Bonus')); ?></span><br>
                             <?php endif; ?>
-                        </div>
+                        </div><br>
+                        <p><strong><?php echo e($val->description); ?></strong></p>
                     </div>
                 </div>
             </div>
